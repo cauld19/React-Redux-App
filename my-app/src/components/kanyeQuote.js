@@ -10,14 +10,17 @@ import { getKanyeWestQuote } from "../actions"
 
 const KanyeQuote = props => {
 
-    console.log(props.data)
+    console.log(props)
+
+
+
+
+
     return (
         <div>
             <button onClick={() => {props.getKanyeWestQuote()}}>get quote</button>
-            {/* <div>
-                {props.loading ? <ClipLoader /> : null}
-            </div> */}
-            <ClipLoader />
+            {props.error}
+            {props.isLoading ? <ClipLoader /> : (<><div>{props.data.name}</div><div>{props.data.quote}</div></>) }
         </div>
     )
 }
