@@ -3,7 +3,7 @@ import {DATA_LOAD_START, DATA_LOAD_SUCCESS, DATA_LOAD_FAILURE} from "../actions"
 export const initialState = {
    isLoading: false,
    error: "",
-   data: {name: "Kanye West", quote: ""}
+   data: {quote: ""}
   };
 
 const reducer = (state = initialState, action) => {
@@ -17,7 +17,7 @@ const reducer = (state = initialState, action) => {
            return {
                ...state,
                isLoading: false,
-               data: { ...state.data, quote: `"${action.payload}"` }
+               data: { ...state.data, quote: `"${action.payload}" - Kanye West` }
            }
        case DATA_LOAD_FAILURE:
            return {

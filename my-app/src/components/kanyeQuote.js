@@ -20,7 +20,7 @@ const KanyeQuote = props => {
         <div>
             <button onClick={() => {props.getKanyeWestQuote()}}>get quote</button>
             {props.error}
-            {props.isLoading ? <ClipLoader /> : (<><div>{props.data.name}</div><div>{props.data.quote}</div></>) }
+            {props.isLoading ? <ClipLoader /> : <div>{props.data.quote}</div> }
         </div>
     )
 }
