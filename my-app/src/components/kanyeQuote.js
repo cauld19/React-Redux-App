@@ -6,31 +6,43 @@ import { ClipLoader } from 'react-spinners';
 
 import { getKanyeWestQuote } from "../actions"
 
+import { shallowEqual, useSelector, useDispatch  } from 'react-redux';
+
 
 
 const KanyeQuote = props => {
 
+    const dispatch = useDispatch();
+
     console.log(props)
 
-
+    const { isLoading, error, data } = useSelector(state => ({
+        isLoading: state.isLoading,
+        error: state.error,
+        data: state.data
+      }), shallowEqual);
 
 
 
     return (
         <div>
-            <button onClick={() => {props.getKanyeWestQuote()}}>get quote</button>
-            {props.error}
-            {props.isLoading ? <ClipLoader /> : <div>{props.data.quote}</div> }
+            <button onClick={() => dispatch(getKanyeWestQuote())}>get quote</button>
+            {error}
+            {isLoading ? <ClipLoader /> : <div>{data.quote}</div> }
         </div>
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        isLoading: state.isLoading,
-        error: state.error,
-        data: state.data
-    }
-}
+// const mapStateToProps = state => {
+//     return {
+//         isLoading: state.isLoading,
+//         error: state.error,
+//         data: state.data
+//     }
+// }
 
-export default connect(mapStateToProps, {getKanyeWestQuote})(KanyeQuote);
+
+
+export default KanyeQuote;
+
+//connect(mapStateToProps, {getKanyeWestQuote})(KanyeQuote);
