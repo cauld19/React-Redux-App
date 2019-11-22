@@ -1,6 +1,6 @@
 import React from "react";
 
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 
 import { ClipLoader } from 'react-spinners';
 
@@ -16,19 +16,24 @@ const KanyeQuote = props => {
 
     console.log(props)
 
-    const { isLoading, error, data } = useSelector(state => ({
-        isLoading: state.isLoading,
-        error: state.error,
-        data: state.data
-      }), shallowEqual);
+    // const { isLoading, error, data } = useSelector(state => ({
+    //     isLoading: state.isLoading,
+    //     error: state.error,
+    //     data: state.data
+    //   }), shallowEqual);
+    //**** */ use when returning multiple values from one object ****//
 
+
+    const isLoading = useSelector(state => state.isLoading);
+    const error = useSelector(state => state.error);
+    const data = useSelector(state => state.data);
 
 
     return (
         <div>
             <button onClick={() => dispatch(getKanyeWestQuote())}>get quote</button>
             {error}
-            {isLoading ? <ClipLoader /> : <div>{data.quote}</div> }
+            {isLoading ? <div><ClipLoader /></div> : <div>{data.quote}</div> }
         </div>
     )
 }

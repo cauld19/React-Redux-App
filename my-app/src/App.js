@@ -3,6 +3,7 @@ import './App.css';
 
 import KanyeQuote from "./components/kanyeQuote"
 
+
 function App() {
 
 
