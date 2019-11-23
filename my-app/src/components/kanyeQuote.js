@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 // import { connect } from "react-redux";
 
@@ -14,7 +14,10 @@ const KanyeQuote = props => {
 
     const dispatch = useDispatch();
 
-    console.log(props)
+    // useEffect(() => {
+    //     dispatch(getKanyeWestQuote())
+    // },[])
+
 
     // const { isLoading, error, data } = useSelector(state => ({
     //     isLoading: state.isLoading,
@@ -27,6 +30,7 @@ const KanyeQuote = props => {
     const isLoading = useSelector(state => state.isLoading);
     const error = useSelector(state => state.error);
     const data = useSelector(state => state.data);
+
 
 
     return (
